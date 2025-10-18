@@ -3,7 +3,7 @@
 Este módulo centraliza las definiciones de estructura para todos los archivos planos.
 """
 
-# 1. Estructura para Cuentasinversion.csv
+# 1. Estructura ficticia
 ARCHIVO_COLUMNAS = [
     'CodFondo', 'CodClase', 'NumeroCuentaInversion', 'TipoIdentificacion', 'Identificacion',
     'CodDireccion', 'Valor', 'Unidades', 'FechaConstitucion', 'FechaVencimiento',
