@@ -3,55 +3,6 @@
 Este módulo centraliza las definiciones de estructura para todos los archivos planos.
 """
 
-# 1. Estructura ficticia
-ARCHIVO_COLUMNAS = [
-    'CodFondo', 'CodClase', 'NumeroCuentaInversion', 'TipoIdentificacion', 'Identificacion',
-    'CodDireccion', 'Valor', 'Unidades', 'FechaConstitucion', 'FechaVencimiento',
-    'ObjetivoInversion', 'Asesor', 'Referido', 'CanalApertura', 'Oficina',
-    'OficinaApertura', 'OficinaActual', 'Bloqueo', 'IdCausalBloqueo', 'FechaVtoTeorica',
-    'FechaUltimaCancelacion', 'DiasPermanencia'
-]
-
-ARCHIVO_ESPECIFICACIONES = {
-    'CodFondo': ('varchar', True, 30),
-    'CodClase': ('varchar', True, 10),
-    'NumeroCuentaInversion': ('varchar', True, 40),
-    'TipoIdentificacion': ('char', True, 10),
-    'Identificacion': ('varchar', True, 30),
-    'CodDireccion': ('int', True, None),
-    'Valor': ('decimal', True, (18, 2)),
-    'Unidades': ('decimal', True, (18, 6)),
-    'FechaConstitucion': ('date', True, None),
-    'FechaVencimiento': ('date', False, None),
-    'ObjetivoInversion': ('int', True, None),
-    'Asesor': ('varchar', False, 50),
-    'Referido': ('varchar', False, 50),
-    'CanalApertura': ('varchar', True, 50),
-    'Oficina': ('varchar', True, None),
-    'OficinaApertura': ('varchar', True, 6),
-    'OficinaActual': ('varchar', True, 6),
-    'Bloqueo': ('bit', True, None),
-    'IdCausalBloqueo': ('int', False, None),
-    'FechaVtoTeorica': ('date', False, None),
-    'FechaUltimaCancelacion': ('date', False, None),
-    'DiasPermanencia': ('int', False, 4)
-}
-
-# --- Diccionario de Configuración Central ---
-# Mapea un identificador de archivo a su configuración de validación.
-VALIDATION_CONFIG = {
-    'archivocsvok': {
-        'archivo': 'archivo-ok.csv',
-        'columnas': ARCHIVO_COLUMNAS,
-        'especificaciones': ARCHIVO_ESPECIFICACIONES
-    },
-    'archivocsverr': {
-        'archivo': 'archivo-err.csv',
-        'columnas': ARCHIVO_COLUMNAS,
-        'especificaciones': ARCHIVO_ESPECIFICACIONES
-    }
-}
-
 # --- Configuraciones Ficticias ---
 
 # 1. Estructura para fic-archivo-ok.csv y fic-archivo-err.csv
@@ -87,8 +38,9 @@ FIC_ARCHIVO_ESPECIFICACIONES = {
     'DIAS_ACTIVO': ('int', False, 4)
 }
 
-# --- Actualización del Diccionario de Configuración Central ---
-VALIDATION_CONFIG.update({
+# --- Diccionario de Configuración Central ---
+# Mapea un identificador de archivo a su configuración de validación.
+VALIDATION_CONFIG = {
     'fic_ok': {
         'archivo': 'fic-archivo-ok.csv',
         'columnas': FIC_ARCHIVO_COLUMNAS,
@@ -125,4 +77,4 @@ VALIDATION_CONFIG.update({
         'especificaciones': FIC_ARCHIVO_ESPECIFICACIONES,
         'primary_key': 'NUM_CUENTA'
     }
-})
+}
